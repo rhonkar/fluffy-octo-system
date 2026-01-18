@@ -1,0 +1,9 @@
+# for initial setup
+docker build -t mynode:1.0 .
+docker run --rm -p 3000:3000 -p 7007:7007 -it -v /home/someuser/dev/backstage-app:/app -w /app mynode:1.0 bash
+npx @backstage/create-app@latest
+cd backstage && yarn start
+
+# for starting
+docker run --rm -p 3000:3000 -p 7007:7007 -it -v /home/someuser/dev/backstage-app:/app -w /app mynode:1.0 bash
+cd backstage && yarn start && cd ..
